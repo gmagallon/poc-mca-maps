@@ -59,6 +59,7 @@ export default function MapScreen() {
       const positionProvider = await createPositionProvider();
       if (positionProvider) {
         MapsIndoors.setPositionProvider(positionProvider);
+        positionProvider.start();
 
         positionProvider.addOnPositionUpdateListener(
           ({ point }: MPPositionResultInterface) => {

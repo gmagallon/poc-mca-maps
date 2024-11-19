@@ -14,6 +14,8 @@ class ExpoPositionProvider implements MPPositionProviderInterface {
 
   latestPosition?: MPPositionResultInterface;
 
+  timer?: NodeJS.Timeout;
+
   constructor() {
     this.updatePosition();
   }
@@ -48,6 +50,18 @@ class ExpoPositionProvider implements MPPositionProviderInterface {
     this.positionUpdateListeners.forEach((listener) => {
       if (this.latestPosition) listener(this.latestPosition);
     });
+  }
+
+  start() {
+    if (!this.timer) {
+      this.timer = setInterval(() => this.updatePosition(), 5000);
+    }
+  }
+
+  stop() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
   }
 }
 
