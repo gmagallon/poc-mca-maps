@@ -14,7 +14,7 @@ module.exports = {
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: process.env.EAS_BUNDLE_ID,
+      bundleIdentifier: "com.gmagallon.mcamaps",
     },
     android: {
       adaptiveIcon: {
@@ -58,9 +58,9 @@ module.exports = {
     },
     extra: {
       eas: {
-        projectId: process.env.EAS_PROJECT_ID,
+        projectId: "20a1ec89-b9f5-4ba3-adcb-2b3d7fc06e1d",
       },
     },
-    owner: process.env.EAS_OWNER,
+    owner: "gmagallon",
   },
 };
