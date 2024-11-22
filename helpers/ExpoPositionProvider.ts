@@ -40,11 +40,9 @@ class ExpoPositionProvider implements MPPositionProviderInterface {
     const position = await Location.getCurrentPositionAsync({});
 
     this.latestPosition = {
-      point: MPPoint.create({
-        type: "Point",
-        coordinates: [position.coords.longitude, position.coords.latitude],
-      }),
+      point: new MPPoint(position.coords.latitude, position.coords.longitude),
       positionProvider: this.name,
+      floorIndex: 0,
     };
 
     this.positionUpdateListeners.forEach((listener) => {

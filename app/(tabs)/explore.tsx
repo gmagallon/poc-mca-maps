@@ -47,6 +47,7 @@ export default function MapScreen() {
         }),
         NativeEventEmitter
       );
+      mapControl.showUserPosition(true);
       setMapControl(mapControl);
 
       mapControl.setOnLocationSelectedListener((location) => {
